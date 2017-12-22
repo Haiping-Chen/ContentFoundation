@@ -286,3 +286,14 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+/ContentFoundation.UI
+/ContentFoundation.WebStarter/App_Data/Content.db
+/ContentFoundation.WebStarter/App_Data/DbInitializer/Core.Workflows.json
+/ContentFoundation.WebStarter/App_Data/DbInitializer/Core.Views.json
+/ContentFoundation.WebStarter/App_Data/DbInitializer/Core.Roles.json
+/ContentFoundation.WebStarter/App_Data/DbInitializer/Core.Pages.json
+/ContentFoundation.WebStarter/App_Data/DbInitializer/Core.Menus.json
+/ContentFoundation.WebStarter/App_Data/DbInitializer/Core.json
+/ContentFoundation.WebStarter/App_Data/DbInitializer/Core.Bundles.json
+/ContentFoundation.WebStarter/App_Data/DbInitializer/Core.Blocks.json
+/ContentFoundation.WebStarter/App_Data/DbInitializer/Core.Accounts.json

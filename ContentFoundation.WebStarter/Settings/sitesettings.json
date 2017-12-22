@@ -1,0 +1,11 @@
+{
+  "SiteSetting": {
+    "name": "Content Foundation",
+    "title": "Content Foundation",
+    "slogan": "The base of Information System",
+    "copyright": "Content Foundation",
+    "enableUserRegister": true,
+    "googleApiKey": "",
+    "defaultPage": "/dashboard"
+  }
+}

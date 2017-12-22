@@ -1,0 +1,11 @@
+{
+  "Database": {
+    "Default": "Sqlite",
+    "ConnectionStrings": {
+      "InMemory": "DataSource=:memory:",
+      "Sqlite": "Data Source=|DataDirectory|\\Content.db;",
+      "MySql": "Data Source=us-east-1.rds.amazonaws.com;port=3306;Initial Catalog=Content;user id=;password=;characterset=utf8;allowuservariables=True",
+      "SqlServer": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Content;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+﻿{
+  "TokenAuthentication": {
+    "SecretKey": "phsK2grw0Eip06aEUtCbqQ==",
+    "Subject": "Content Foundation",
+    "Issuer": "Content Foundation",
+    "Audience": "Content Foundation",
+    "TokenPath": "/token",
+    "CookieName": "token",
+    "LoginPath": "/login"
+  }
+}

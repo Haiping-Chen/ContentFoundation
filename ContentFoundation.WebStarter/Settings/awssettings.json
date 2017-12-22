@@ -1,0 +1,9 @@
+{
+  "AWS": {
+    "AWSRegionEndPoint": "",
+    "AWSSecretKey": "",
+    "AWSAccessKey": "",
+    "AWSEncoding": "",
+    "SESVerifiedEmail": ""
+  }
+}
