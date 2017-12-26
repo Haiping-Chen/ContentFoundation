@@ -1,9 +1,9 @@
 {
   "SiteSetting": {
-    "name": "Content Foundation",
+    "name": "CF",
     "title": "Content Foundation",
     "slogan": "The base of Information System",
-    "copyright": "Content Foundation",
+    "copyright": "Haiping Copyright LLC.",
     "enableUserRegister": true,
     "googleApiKey": "",
     "defaultPage": "/dashboard"

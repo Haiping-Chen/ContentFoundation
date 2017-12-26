@@ -10,7 +10,7 @@ namespace ContentFoundation.Core.Menus
 {
     public class HookDbInitializer : IHookDbInitializer
     {
-        public int Priority => 10;
+        public int Priority => 100;
 
         public void Load(IConfiguration config, EntityDbContext dc)
         {

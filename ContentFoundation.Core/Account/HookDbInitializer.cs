@@ -11,7 +11,7 @@ namespace ContentFoundation.Core.Account
 {
     public class HookDbInitializer : IHookDbInitializer
     {
-        public int Priority => 11;
+        public int Priority => 110;
 
         public void Load(IConfiguration config, EntityDbContext dc)
         {
@@ -35,6 +35,7 @@ namespace ContentFoundation.Core.Account
                 var user = jUser.ToObject<User>();
                 if (!user.IsExist<User>(dc))
                 {
+                    user.Password = user.Name;
                     dc.Table<User>().Add(user);
                 }
             });

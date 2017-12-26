@@ -24,11 +24,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="App_Data\DbInitializer\Core.Accounts.json" />
+    <Content Include="App_Data\DbInitializer\Core.Blocks.json" />
+    <Content Include="App_Data\DbInitializer\Core.Bundles.json" />
+    <Content Include="App_Data\DbInitializer\Core.json" />
+    <Content Include="App_Data\DbInitializer\Core.Menus.json" />
+    <Content Include="App_Data\DbInitializer\Core.Pages.json" />
+    <Content Include="App_Data\DbInitializer\Core.Roles.json" />
+    <Content Include="App_Data\DbInitializer\Core.Views.json" />
+    <Content Include="App_Data\DbInitializer\Core.Workflows.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
+    <PackageReference Include="Quickflow.ActivityRepository" Version="1.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="1.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="1.1.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="1.1.0" />
@@ -39,6 +52,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="App_Data\Templates\UserRegisterDataMapping.cshtml" />
+    <None Include="App_Data\Templates\UserRegisterValidation.cshtml" />
     <None Include="Settings\log4net.config" />
   </ItemGroup>
 

@@ -7,6 +7,7 @@ using Newtonsoft.Json.Serialization;
 using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.Extensions.PlatformAbstractions;
 using System.IO;
+using ContentFoundation.RestApi;
 
 namespace ContentFoundation.WebStarter
 {
@@ -23,7 +24,7 @@ namespace ContentFoundation.WebStarter
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddScoped<ApiExceptionFilter>();
+            services.AddScoped<ApiExceptionFilter>();
             services.AddCors();
             services.AddJwtAuth(Configuration);
 

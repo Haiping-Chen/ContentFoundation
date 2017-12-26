@@ -6,6 +6,7 @@ using ContentFoundation.Core.Account;
 using System.Linq.Dynamic.Core;
 using Quickflow.Core;
 using CustomEntityFoundation.Utilities;
+using CustomEntityFoundation.Entities;
 
 namespace ContentFoundation.RestApi.Account
 {
@@ -28,7 +29,7 @@ namespace ContentFoundation.RestApi.Account
             }
 
             // validate from local
-            var user = dc.Table<User>().FirstOrDefault(x => x.Name == username && x.Password == password);
+            var user = dc.Table<User>().FirstOrDefault(x => x.Name == username && x.Password == password && x.Status == EntityStatus.Active);
             if (user != null)
             {
                 return Ok(JwtToken.GenerateToken(user));
@@ -133,7 +134,9 @@ namespace ContentFoundation.RestApi.Account
                 Email = account.Email,
                 Name = account.Email,
                 FirstName = account.Email.Split("@").First(),
-                LastName = account.Email.Split("@").Last()
+                LastName = account.Email.Split("@").Last(),
+                Status = EntityStatus.Hidden,
+                ActivationToken = Guid.NewGuid().ToString("N")
             };
 
             dc.DbTran(async delegate {
@@ -141,6 +144,19 @@ namespace ContentFoundation.RestApi.Account
 
                 var wf = new WorkflowEngine { WorkflowId = "87647613-df6e-435c-b13c-b0f42397cbc0" };
                 await wf.Run(dc, user);
+            });
+
+            return Ok();
+        }
+
+        [HttpGet("activate/{token}")]
+        [AllowAnonymous]
+        public IActionResult ActivateAccount([FromRoute] String token)
+        {
+            dc.DbTran(() => {
+                var user = dc.Table<User>().FirstOrDefault(x => x.ActivationToken == token);
+                user.ActivationToken = String.Empty;
+                user.Status = EntityStatus.Active;
             });
 
             return Ok();
