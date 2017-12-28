@@ -48,7 +48,7 @@ namespace ContentFoundation.Core.Menus
 
         public List<MenuAcl> Roles { get; set; }
 
-        public IQueryable<IDbRecord> GetResources(EntityDbContext dc)
+        public IQueryable<IDbRecord> GetResources(Database dc)
         {
             return dc.Table<Menu>();
         }

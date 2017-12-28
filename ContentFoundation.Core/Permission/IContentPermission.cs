@@ -9,7 +9,7 @@ namespace ContentFoundation.Core.Permission
 {
     public interface IContentPermission
     {
-        IQueryable<IDbRecord> GetResources(EntityDbContext dc);
+        IQueryable<IDbRecord> GetResources(Database dc);
         String GetResourceName();
         String GetResourceDescription();
     }

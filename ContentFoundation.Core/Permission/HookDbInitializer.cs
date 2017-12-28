@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using CustomEntityFoundation;
+using EntityFrameworkCore.BootKit;
 
 namespace ContentFoundation.Core.Permission
 {
@@ -14,9 +15,9 @@ namespace ContentFoundation.Core.Permission
     {
         public int Priority => 100;
 
-        public void Load(IConfiguration config, EntityDbContext dc)
+        public void Load(IConfiguration config, Database dc)
         {
-            Directory.GetFiles(EntityDbContext.Options.ContentRootPath + "\\App_Data\\DbInitializer", "*.Roles.json")
+            Directory.GetFiles(CefOptions.ContentRootPath + "\\App_Data\\DbInitializer", "*.Roles.json")
                 .ToList()
                 .ForEach(path =>
                 {
@@ -30,7 +31,7 @@ namespace ContentFoundation.Core.Permission
                 });
         }
 
-        private void InitRoles(EntityDbContext dc, List<JToken> roles)
+        private void InitRoles(Database dc, List<JToken> roles)
         {
             roles.ForEach(jRole =>
             {

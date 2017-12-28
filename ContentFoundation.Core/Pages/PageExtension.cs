@@ -2,6 +2,7 @@
 using ContentFoundation.Core.Utility;
 using CustomEntityFoundation;
 using CustomEntityFoundation.Utilities;
+using EntityFrameworkCore.BootKit;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace ContentFoundation.Core.Pages
 {
     public static class PageExtension
     {
-        public static bool Add(this Page pageModel, EntityDbContext dc)
+        public static bool Add(this Page pageModel, Database dc)
         {
             if (dc.Table<Page>().Any(x => x.Id == pageModel.Id)) return false;
 
@@ -37,7 +38,7 @@ namespace ContentFoundation.Core.Pages
             return true;
         }
 
-        public static void Update(this Page pageModel, EntityDbContext dc)
+        public static void Update(this Page pageModel, Database dc)
         {
             if (pageModel.Blocks != null)
             {
@@ -68,7 +69,7 @@ namespace ContentFoundation.Core.Pages
             }
         }
 
-        public static void Load(this Page pageModel, EntityDbContext dc)
+        public static void Load(this Page pageModel, Database dc)
         {
             var blocks = (from b in dc.Table<Block>()
                           join pb in dc.Table<BlockInPage>() on b.Id equals pb.BlockId

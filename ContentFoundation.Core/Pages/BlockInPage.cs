@@ -30,7 +30,7 @@ namespace ContentFoundation.Core.Pages
             set { PositionJson = (value == null) ? null : JsonConvert.SerializeObject(value); }
         }
 
-        public override bool IsExist<T>(EntityDbContext dc)
+        public override bool IsExist<T>(Database dc)
         {
             return dc.Table<BlockInPage>().Any(x => x.PageId == PageId && x.BlockId == BlockId);
         }

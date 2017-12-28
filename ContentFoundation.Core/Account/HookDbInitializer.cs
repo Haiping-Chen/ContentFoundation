@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using System.IO;
 using Newtonsoft.Json.Linq;
 using CustomEntityFoundation;
+using EntityFrameworkCore.BootKit;
 
 namespace ContentFoundation.Core.Account
 {
@@ -13,9 +14,9 @@ namespace ContentFoundation.Core.Account
     {
         public int Priority => 110;
 
-        public void Load(IConfiguration config, EntityDbContext dc)
+        public void Load(IConfiguration config, Database dc)
         {
-            Directory.GetFiles(EntityDbContext.Options.ContentRootPath + "\\App_Data\\DbInitializer", "*.Accounts.json")
+            Directory.GetFiles(CefOptions.ContentRootPath + "\\App_Data\\DbInitializer", "*.Accounts.json")
                 .ToList()
                 .ForEach(path =>
                 {
@@ -29,7 +30,7 @@ namespace ContentFoundation.Core.Account
                 });
         }
 
-        private void InitAccounts(EntityDbContext dc, List<JToken> jUsers)
+        private void InitAccounts(Database dc, List<JToken> jUsers)
         {
             jUsers.ForEach(jUser => {
                 var user = jUser.ToObject<User>();

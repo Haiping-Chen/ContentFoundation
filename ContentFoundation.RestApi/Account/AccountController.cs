@@ -7,6 +7,7 @@ using System.Linq.Dynamic.Core;
 using Quickflow.Core;
 using CustomEntityFoundation.Utilities;
 using CustomEntityFoundation.Entities;
+using CustomEntityFoundation;
 
 namespace ContentFoundation.RestApi.Account
 {
@@ -142,7 +143,12 @@ namespace ContentFoundation.RestApi.Account
             dc.DbTran(async delegate {
                 if (dc.Table<User>().Any(x => x.Email == account.Email)) return;
 
-                var wf = new WorkflowEngine { WorkflowId = "87647613-df6e-435c-b13c-b0f42397cbc0" };
+                var wf = new WorkflowEngine
+                {
+                    WorkflowId = "87647613-df6e-435c-b13c-b0f42397cbc0",
+                    TransactionId = Guid.NewGuid().ToString(),
+                };
+
                 await wf.Run(dc, user);
             });
 

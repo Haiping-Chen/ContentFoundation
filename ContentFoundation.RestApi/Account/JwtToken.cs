@@ -22,7 +22,7 @@ namespace ContentFoundation.RestApi.Account
 
         public static string GenerateToken(User user)
         {
-            var Configuration = EntityDbContext.Configuration;
+            var Configuration = CefOptions.Configuration;
             var authConfig = Configuration.GetSection("TokenAuthentication");
 
             var token = new JwtTokenBuilder()

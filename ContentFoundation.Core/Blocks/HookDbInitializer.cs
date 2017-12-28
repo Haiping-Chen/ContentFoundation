@@ -6,6 +6,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using CustomEntityFoundation;
+using EntityFrameworkCore.BootKit;
 
 namespace ContentFoundation.Core.Blocks
 {
@@ -13,9 +14,9 @@ namespace ContentFoundation.Core.Blocks
     {
         public int Priority => 100;
 
-        public void Load(IConfiguration config, EntityDbContext dc)
+        public void Load(IConfiguration config, Database dc)
         {
-            Directory.GetFiles(EntityDbContext.Options.ContentRootPath + "\\App_Data\\DbInitializer", "*.Blocks.json")
+            Directory.GetFiles(CefOptions.ContentRootPath + "\\App_Data\\DbInitializer", "*.Blocks.json")
                 .ToList()
                 .ForEach(path =>
                 {
@@ -29,7 +30,7 @@ namespace ContentFoundation.Core.Blocks
                 });
         }
 
-        private void InitBlocks(EntityDbContext dc, List<JToken> jBlocks)
+        private void InitBlocks(Database dc, List<JToken> jBlocks)
         {
             jBlocks.ForEach(jBlock => {
                 var dmBlock = jBlock.ToObject<Block>();

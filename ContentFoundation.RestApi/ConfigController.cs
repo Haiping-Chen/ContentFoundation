@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using CustomEntityFoundation;
+using ContentFoundation.Core;
 
 namespace ContentFoundation.RestApi
 {
@@ -16,7 +17,7 @@ namespace ContentFoundation.RestApi
         [HttpGet("site")]
         public IActionResult GetSettings()
         {
-            IEnumerable<IConfigurationSection> settings = EntityDbContext.Configuration.GetSection("SiteSetting").GetChildren();
+            IEnumerable<IConfigurationSection> settings = CefOptions.Configuration.GetSection("SiteSetting").GetChildren();
 
             JObject result = new JObject();
             settings.ToList().ForEach(setting => {

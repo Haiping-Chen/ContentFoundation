@@ -29,7 +29,7 @@ namespace ContentFoundation.Core.Blocks
         [NotMapped]
         public BlockPositionInPage Position { get; set; }
 
-        public override bool IsExist<T>(EntityDbContext dc)
+        public override bool IsExist<T>(Database dc)
         {
             return dc.Table<Block>().Any(x => x.Name == Name);
         }

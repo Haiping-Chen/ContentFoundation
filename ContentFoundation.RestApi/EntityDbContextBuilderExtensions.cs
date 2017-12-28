@@ -17,21 +17,9 @@ namespace Microsoft.AspNetCore.Builder
         /// <param name="assembles"></param>
         public static void UseEntityDbContext(this IApplicationBuilder app, IConfiguration configuration, String contentRootPath, String[] assembles)
         {
-            Console.WriteLine($"     *   *   ***     ");
-            Console.WriteLine($"     *   *    *      ");
-            Console.WriteLine($"     *****    *      ");
-            Console.WriteLine($"     *   *    *      ");
-            Console.WriteLine($"     *   *   ***  * * *");
-
-            var db = configuration.GetSection("Database:Default").Value;
-            EntityDbContext.Options = new DatabaseOptions
-            {
-                Database = db,
-                ConnectionString = configuration.GetSection("Database:ConnectionStrings")[db],
-                ContentRootPath = contentRootPath
-            };
-            EntityDbContext.Assembles = assembles;
-            EntityDbContext.Configuration = configuration;
+            CefOptions.Configuration = configuration;
+            CefOptions.Assembles = assembles;
+            CefOptions.ContentRootPath = contentRootPath;
         }
     }
 }

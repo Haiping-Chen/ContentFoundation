@@ -27,7 +27,7 @@ namespace ContentFoundation.Core.Pages
         [NotMapped]
         public List<Block> Blocks { get; set; }
 
-        public override bool IsExist<T>(EntityDbContext dc)
+        public override bool IsExist<T>(Database dc)
         {
             return dc.Table<Page>().Any(x => x.Name == Name);
         }

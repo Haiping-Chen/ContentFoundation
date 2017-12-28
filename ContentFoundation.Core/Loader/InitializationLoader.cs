@@ -17,7 +17,7 @@ namespace ContentFoundation.Core.Loader
             Console.WriteLine($"*** *** *** *** InitializationLoader running *** *** *** ***");
             Console.WriteLine();
 
-            var coreLoaders = TypeHelper.GetInstanceWithInterface<IInitializationLoader>(EntityDbContext.Assembles);
+            var coreLoaders = TypeHelper.GetInstanceWithInterface<IInitializationLoader>(CefOptions.Assembles);
 
             coreLoaders.ForEach(loader =>
             {

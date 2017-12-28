@@ -8,20 +8,21 @@ using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.Extensions.PlatformAbstractions;
 using System.IO;
 using ContentFoundation.RestApi;
+using System.Linq;
 
 namespace ContentFoundation.WebStarter
 {
     public partial class Startup
     {
+        public IConfiguration Configuration { get; }
+        private IHostingEnvironment CurrentEnvironment { get; set; }
+
         public Startup(IConfiguration configuration, IHostingEnvironment appEnv)
         {
             Configuration = configuration;
             CurrentEnvironment = appEnv;
         }
 
-        public IConfiguration Configuration { get; }
-        private IHostingEnvironment CurrentEnvironment { get; set; }
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<ApiExceptionFilter>();
@@ -61,7 +62,6 @@ namespace ContentFoundation.WebStarter
             
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -84,10 +84,15 @@ namespace ContentFoundation.WebStarter
 
             app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
 
+            app.UseJwtAuthQueryString();
+
             app.UseAuthentication();
+
             app.UseMvc();
 
-            app.UseEntityDbContext(Configuration, env.ContentRootPath, new String[] { "CustomEntityFoundation", "Quickflow.Core", "Quickflow.ActivityRepository", "ContentFoundation.Core" });
+            var assembly = new String[] { "CustomEntityFoundation.Core", "Quickflow.Core", "Quickflow.ActivityRepository", "ContentFoundation.Core" };
+            app.UseEntityDbContext(Configuration, env.ContentRootPath, assembly);
+            app.UseWorkflowEngine(Configuration, env.ContentRootPath, assembly);
             app.UseInitLoader();
         }
 
