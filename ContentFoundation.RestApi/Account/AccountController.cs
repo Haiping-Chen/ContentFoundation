@@ -8,6 +8,7 @@ using Quickflow.Core;
 using CustomEntityFoundation.Utilities;
 using CustomEntityFoundation.Entities;
 using CustomEntityFoundation;
+using EntityFrameworkCore.BootKit;
 
 namespace ContentFoundation.RestApi.Account
 {

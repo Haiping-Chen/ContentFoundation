@@ -11,10 +11,10 @@
     <PackageTags>Content Management Framework Entity Workflow</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Description>Rest API of Content Management Framework</Description>
-    <AssemblyVersion>1.4.0.0</AssemblyVersion>
-    <FileVersion>1.4.0.0</FileVersion>
-    <Version>1.4.0</Version>
-    <PackageReleaseNotes>Remove EntityDbContext.</PackageReleaseNotes>
+    <AssemblyVersion>1.5.0.0</AssemblyVersion>
+    <FileVersion>1.5.0.0</FileVersion>
+    <Version>1.5.0</Version>
+    <PackageReleaseNotes>Add Quartz scheduler.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

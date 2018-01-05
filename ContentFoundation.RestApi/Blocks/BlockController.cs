@@ -2,6 +2,7 @@
 using ContentFoundation.RestApi;
 using CustomEntityFoundation.Models;
 using CustomEntityFoundation.Utilities;
+using EntityFrameworkCore.BootKit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;

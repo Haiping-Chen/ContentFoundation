@@ -1,0 +1,9 @@
+﻿{
+  "Scheduler": {
+    "Enable": false,
+    "Crons": {
+      "TestJob": "0 0/1 * * * ?",
+      "CurrencyMarketRefreshJob": "0/30 * * * * ?"
+    }
+  }
+}
