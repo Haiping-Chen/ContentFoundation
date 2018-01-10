@@ -11,10 +11,10 @@
     <PackageTags>Content Management Framework Entity Workflow</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
     <Description>Rest API of Content Management Framework</Description>
-    <AssemblyVersion>1.5.0.0</AssemblyVersion>
-    <FileVersion>1.5.0.0</FileVersion>
-    <Version>1.5.0</Version>
-    <PackageReleaseNotes>Add Quartz scheduler.</PackageReleaseNotes>
+    <AssemblyVersion>1.5.1.0</AssemblyVersion>
+    <FileVersion>1.5.1.0</FileVersion>
+    <Version>1.5.1</Version>
+    <PackageReleaseNotes>Minor improvement.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -22,6 +22,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DotNetToolkit" Version="1.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
   </ItemGroup>
 

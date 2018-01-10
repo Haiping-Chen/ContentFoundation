@@ -1,5 +1,6 @@
 ﻿using ContentFoundation.Core.Account;
 using CustomEntityFoundation;
+using EntityFrameworkCore.BootKit;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -22,7 +23,7 @@ namespace ContentFoundation.RestApi.Account
 
         public static string GenerateToken(User user)
         {
-            var Configuration = CefOptions.Configuration;
+            var Configuration = Database.Configuration;
             var authConfig = Configuration.GetSection("TokenAuthentication");
 
             var token = new JwtTokenBuilder()

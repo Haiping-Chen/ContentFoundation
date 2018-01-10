@@ -1,7 +1,7 @@
 ﻿using ContentFoundation.Core.Blocks;
 using ContentFoundation.RestApi;
-using CustomEntityFoundation.Models;
 using CustomEntityFoundation.Utilities;
+using DotNetToolkit;
 using EntityFrameworkCore.BootKit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +24,7 @@ namespace ContentFoundation.RestApi.Blocks
                 query = query.Where(x => x.Name.Contains(name));
             }
 
-            return new PageResult<Block>() { Page = page }.LoadData(query);
+            return new PageResult<Block>() { Page = page }.LoadRecords(query);
         }
 
         [HttpPost]

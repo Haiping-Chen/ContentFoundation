@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using CustomEntityFoundation;
 using EntityFrameworkCore.BootKit;
+using System;
 
 namespace ContentFoundation.Core.Menus
 {
@@ -15,7 +16,7 @@ namespace ContentFoundation.Core.Menus
 
         public void Load(IConfiguration config, Database dc)
         {
-            Directory.GetFiles(CefOptions.ContentRootPath + "\\App_Data\\DbInitializer", "*.Menus.json")
+            Directory.GetFiles(Database.ContentRootPath + "\\App_Data\\DbInitializer", "*.Menus.json")
                 .ToList()
                 .ForEach(path =>
                 {

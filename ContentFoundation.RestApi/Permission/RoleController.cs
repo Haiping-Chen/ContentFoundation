@@ -1,6 +1,5 @@
 ﻿using ContentFoundation.Core.Permission;
-using CustomEntityFoundation.Models;
-using CustomEntityFoundation.Utilities;
+using DotNetToolkit;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
@@ -18,7 +17,7 @@ namespace ContentFoundation.RestApi.Permission
                 query = query.Where(x => x.Name.Contains(name));
             }
 
-            return new PageResult<Role> { Page = page, Size = size }.LoadData(query);
+            return new PageResult<Role> { Page = page, Size = size }.LoadRecords(query);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace ContentFoundation.Core.Permission
 
         public void Load(IConfiguration config, Database dc)
         {
-            Directory.GetFiles(CefOptions.ContentRootPath + "\\App_Data\\DbInitializer", "*.Roles.json")
+            Directory.GetFiles(Database.ContentRootPath + "\\App_Data\\DbInitializer", "*.Roles.json")
                 .ToList()
                 .ForEach(path =>
                 {

@@ -8,7 +8,6 @@ using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.Extensions.PlatformAbstractions;
 using System.IO;
 using ContentFoundation.RestApi;
-using System.Linq;
 
 namespace ContentFoundation.WebStarter
 {
@@ -92,7 +91,6 @@ namespace ContentFoundation.WebStarter
 
             var assembly = new String[] { "CustomEntityFoundation.Core", "Quickflow.Core", "Quickflow.ActivityRepository", "ContentFoundation.Core" };
             app.UseEntityDbContext(Configuration, env.ContentRootPath, assembly);
-            app.UseWorkflowEngine(Configuration, env.ContentRootPath, assembly);
             app.UseInitLoader();
         }
 

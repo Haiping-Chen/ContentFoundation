@@ -8,6 +8,7 @@ using System.Text;
 using System.Linq;
 using CustomEntityFoundation;
 using ContentFoundation.Core;
+using EntityFrameworkCore.BootKit;
 
 namespace ContentFoundation.RestApi
 {
@@ -17,7 +18,7 @@ namespace ContentFoundation.RestApi
         [HttpGet("site")]
         public IActionResult GetSettings()
         {
-            IEnumerable<IConfigurationSection> settings = CefOptions.Configuration.GetSection("SiteSetting").GetChildren();
+            IEnumerable<IConfigurationSection> settings = Database.Configuration.GetSection("SiteSetting").GetChildren();
 
             JObject result = new JObject();
             settings.ToList().ForEach(setting => {

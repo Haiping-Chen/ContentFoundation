@@ -5,6 +5,7 @@ using System.Linq;
 using CustomEntityFoundation.Utilities;
 using CustomEntityFoundation;
 using EntityFrameworkCore.BootKit;
+using DotNetToolkit;
 
 namespace ContentFoundation.Core.Loader
 {
@@ -14,17 +15,15 @@ namespace ContentFoundation.Core.Loader
 
         public void Initialize()
         {
-            var dc = new Database();
-            dc.Init(CefOptions.Configuration, CefOptions.Assembles);
-            
+            var dc = new DefaultDataContextLoader().GetDefaultDc();
 
-            var instances = TypeHelper.GetInstanceWithInterface<IHookDbInitializer>(CefOptions.Assembles).OrderBy(x => x.Priority).ToList();
+            var instances = TypeHelper.GetInstanceWithInterface<IHookDbInitializer>(Database.Assemblies).OrderBy(x => x.Priority).ToList();
 
             for (int idx = 0; idx < instances.Count; idx++)
             {
                 DateTime start = DateTime.UtcNow;
                 Console.WriteLine($"{instances[idx].ToString()} P:{instances[idx].Priority} started at {DateTime.UtcNow}");
-                int effected = dc.DbTran(() => instances[idx].Load(CefOptions.Configuration, dc));
+                int effected = dc.DbTran(() => instances[idx].Load(Database.Configuration, dc));
                 Console.WriteLine($"{instances[idx].ToString()} effected [{effected}] records in {(DateTime.UtcNow - start).TotalMilliseconds} ms");
             }
         }

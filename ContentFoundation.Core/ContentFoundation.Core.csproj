@@ -11,18 +11,19 @@
     <RepositoryUrl>https://github.com/Haiping-Chen/ContentFoundation</RepositoryUrl>
     <PackageTags>Content Management Framework Entity Workflow</PackageTags>
     <NeutralLanguage>en-US</NeutralLanguage>
-    <Version>1.5.0</Version>
-    <AssemblyVersion>1.5.0.0</AssemblyVersion>
-    <FileVersion>1.5.0.0</FileVersion>
-    <PackageReleaseNotes>Add Quartz scheduler.</PackageReleaseNotes>
+    <Version>1.5.1</Version>
+    <AssemblyVersion>1.5.1.0</AssemblyVersion>
+    <FileVersion>1.5.1.0</FileVersion>
+    <PackageReleaseNotes>Minor improvement.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CustomEntityFoundation.Core" Version="2.3.1" />
-    <PackageReference Include="DotNetToolkit" Version="1.0.0" />
+    <PackageReference Include="CustomEntityFoundation.Core" Version="2.3.2" />
+    <PackageReference Include="DotNetToolkit" Version="1.1.0" />
+    <PackageReference Include="EntityFrameworkCore.BootKit" Version="1.4.2" />
     <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Quartz" Version="3.0.0" />
-    <PackageReference Include="Quickflow.Core" Version="1.3.1" />
+    <PackageReference Include="Quickflow.Core" Version="1.3.2" />
   </ItemGroup>
 
   <ItemGroup>

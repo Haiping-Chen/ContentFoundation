@@ -1,8 +1,6 @@
 ﻿using ContentFoundation.Core.Pages;
-using ContentFoundation.Core.Utility;
-using ContentFoundation.RestApi;
-using CustomEntityFoundation.Models;
 using CustomEntityFoundation.Utilities;
+using DotNetToolkit;
 using EntityFrameworkCore.BootKit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +22,7 @@ namespace ContentFoundation.RestApi.Pages
                 query = query.Where(x => x.Name.Contains(name));
             }
 
-            return new PageResult<Page>() { Page = page }.LoadData(query);
+            return new PageResult<Page>() { Page = page }.LoadRecords(query);
         }
 
         // GET: api/Page/1

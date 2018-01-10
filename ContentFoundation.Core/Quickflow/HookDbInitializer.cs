@@ -18,7 +18,7 @@ namespace Quickflow.Core
 
         public void Load(IConfiguration config, Database dc)
         {
-            Directory.GetFiles(CefOptions.ContentRootPath + "\\App_Data\\DbInitializer", "*.Workflows.json")
+            Directory.GetFiles(Database.ContentRootPath + "\\App_Data\\DbInitializer", "*.Workflows.json")
                 .ToList()
                 .ForEach(path =>
                 {

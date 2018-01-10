@@ -1,5 +1,7 @@
 ﻿using CustomEntityFoundation;
 using CustomEntityFoundation.Utilities;
+using DotNetToolkit;
+using EntityFrameworkCore.BootKit;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using System;
@@ -17,7 +19,7 @@ namespace ContentFoundation.Core.Loader
             Console.WriteLine($"*** *** *** *** InitializationLoader running *** *** *** ***");
             Console.WriteLine();
 
-            var coreLoaders = TypeHelper.GetInstanceWithInterface<IInitializationLoader>(CefOptions.Assembles);
+            var coreLoaders = TypeHelper.GetInstanceWithInterface<IInitializationLoader>(Database.Assemblies);
 
             coreLoaders.ForEach(loader =>
             {

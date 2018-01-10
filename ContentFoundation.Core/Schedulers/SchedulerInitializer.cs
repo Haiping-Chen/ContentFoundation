@@ -12,6 +12,7 @@ using DotNetToolkit;
 using ContentFoundation.Core.Loader;
 using CustomEntityFoundation;
 using ContentFoundation.Core.Utility;
+using EntityFrameworkCore.BootKit;
 
 namespace ContentFoundation.Core
 {
@@ -21,7 +22,7 @@ namespace ContentFoundation.Core
 
         public void Initialize()
         {
-            bool enable = bool.Parse(CefOptions.Configuration.GetSection("Scheduler:Enable").Value);
+            bool enable = bool.Parse(Database.Configuration.GetSection("Scheduler:Enable").Value);
             if (!enable) return;
 
             // init
@@ -29,7 +30,7 @@ namespace ContentFoundation.Core
             // get a scheduler
             IScheduler sched = schedFact.GetScheduler().Result;
 
-            TypeHelper.GetClassesWithInterface<IScheduleJob>(CefOptions.Assembles).ForEach(type => Schedule(sched, type, CefOptions.Configuration));
+            TypeHelper.GetClassesWithInterface<IScheduleJob>(Database.Assemblies).ForEach(type => Schedule(sched, type, Database.Configuration));
 
             sched.Start();
         }
