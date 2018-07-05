@@ -10,8 +10,6 @@ using System.Linq;
 using Quartz.Impl.Triggers;
 using DotNetToolkit;
 using ContentFoundation.Core.Loader;
-using CustomEntityFoundation;
-using ContentFoundation.Core.Utility;
 using EntityFrameworkCore.BootKit;
 
 namespace ContentFoundation.Core

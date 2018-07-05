@@ -33,7 +33,7 @@ namespace ContentFoundation.RestApi.Account
             }
 
             // validate from local
-            var user = dc.Table<User>().FirstOrDefault(x => x.Name == username && x.Password == password && x.Status == EntityStatus.Active);
+            var user = dc.Table<User>().FirstOrDefault(x => x.Name == username && x.Password == password);
             if (user != null)
             {
                 return Ok(JwtToken.GenerateToken(user));
@@ -139,7 +139,6 @@ namespace ContentFoundation.RestApi.Account
                 Name = account.Email,
                 FirstName = account.Email.Split("@").First(),
                 LastName = account.Email.Split("@").Last(),
-                Status = EntityStatus.Hidden,
                 ActivationToken = Guid.NewGuid().ToString("N")
             };
 
@@ -165,7 +164,6 @@ namespace ContentFoundation.RestApi.Account
             dc.DbTran(() => {
                 var user = dc.Table<User>().FirstOrDefault(x => x.ActivationToken == token);
                 user.ActivationToken = String.Empty;
-                user.Status = EntityStatus.Active;
             });
 
             return Ok();

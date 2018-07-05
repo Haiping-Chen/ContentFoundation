@@ -1,4 +1,4 @@
-﻿using ContentFoundation.Core.Utility;
+﻿using DotNetToolkit;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -25,7 +25,7 @@ namespace ContentFoundation.RestApi
 
         public override void OnException(ExceptionContext context)
         {
-            context.Exception.Message.Log(CfLogLevel.ERROR);
+            context.Exception.Message.Log(LogLevel.ERROR);
 
             ApiError apiError = null;
             if (context.Exception is ApiException)
